@@ -1,0 +1,38 @@
+group 'com.patres'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.2.21'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile group: 'org.openpnp', name: 'opencv', version: '3.2.0-0'
+    compile group: 'org.processing', name: 'core', version: '3.3.6'
+    compile files('lib/minim/jl1.0.1.jar')
+    compile files('lib/minim/jsminim.jar')
+    compile files('lib/minim/minim.jar')
+    compile files('lib/minim/mp3spi1.9.5.jar')
+    compile files('lib/minim/tritonus_aos.jar')
+    compile files('lib/minim/tritonus_share.jar')
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
